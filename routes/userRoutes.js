@@ -58,7 +58,7 @@ userRouter.post("/login",async(req,res)=>{
                     const token=jwt.sign({userID:user[0]._id,role:user[0].role,email:user[0].email},process.env.key );
                     const refresh_token=jwt.sign({userID:user[0]._id},process.env.secret_key,{expiresIn:180})
                     
-                    res.json({"token":token,"refresh_token":refresh_token,"role":user[0].role,"email":user[0].email,"name":user[0].name,"userId":user[0]._id,"message":"Login Successfuly"})
+                    res.json({"token":token,"refresh_token":refresh_token,"role":user[0].role,"email":user[0].email,"name":user[0].name,"userID":user[0]._id,"message":"Login Successfuly"})
                 }else{
                     res.json({"message":"Wrong credential"})
                 }
