@@ -5,11 +5,11 @@ const authenticate=(req,res,next)=>{
     const token=req.headers.authorization;
     // console.log(token)
     if(!token){
-        res.send("Please Login again first")
+        res.json("Please Login again first")
     }else{
       const blacklistdata=JSON.parse(fs.readFileSync("./blacklistdata.json","utf-8"))
       if(blacklistdata.includes(token)){
-        return res.send("Login first")
+        return res.json("Login first")
       }else{
         try {
             const decode=jwt.verify(token,"masai");
@@ -29,7 +29,7 @@ const authenticate=(req,res,next)=>{
                     res.json("Please login Again")
                 } 
         } catch (err) {
-            res.send({"err":err.message})
+            res.json({"err":err.message})
         } 
     }
 }

@@ -41,7 +41,7 @@ userRouter.post("/register",async(req,res)=>{
         });
     } catch (err) {
         console.log(err);
-        console.log({"message":"Something went wrong"})
+        res.json({"message":"Something went wrong"})
     }
 })
 
