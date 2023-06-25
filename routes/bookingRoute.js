@@ -91,10 +91,10 @@ bookingRouter.delete("/delete/:id", authenticate,authorisation(["patient"]),asyn
     //console.log(ID);
     try {
         await BookingModal.findByIdAndDelete({ _id: ID });
-        res.json({ msg: `booking id of ${ID} is deleted succesfully` })
+        res.json({ msg: `Your appointment cancelled succesfully` })
     } catch (error) {
-        console.log("error from deleting booking data", error.message);
-        res.json({ msg: "error in deleting of booking data", errorMsg: error.message })
+        console.log("error from cancelling booking data", error.message);
+        res.json({ msg: "error in cancelling of booking data", errorMsg: error.message })
     }
 })
 module.exports={bookingRouter}
